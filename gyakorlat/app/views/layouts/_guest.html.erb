@@ -1,0 +1,36 @@
+<p><%= flash[:notice] %></p>
+<div id="login_div">
+	<fieldset>
+	  <h1>Login</h1>
+	  <%= form_tag '/sessions/create', method: :post do %>
+	    <%= label_tag 'email', 'Email' %>
+	    <%= text_field_tag 'email', '', size: 14 %>
+	    <%= label_tag 'password', "Password"  %>
+	    <%= password_field_tag 'password', '', size: 14 %><br>
+	    <%= submit_tag "Login" %>
+	  <% end %>
+	</fieldset>
+
+	<%= link_to "Register", '/users/new' %><br/>
+</div>
+<div id="help_div">
+	<h5>Help:</h5>
+	<table class="table">
+		<thead class="thead-dark">
+			<th class="col">Email:</th>
+			<th class="col">Password:</th>
+		</thead>
+		<tbody>
+			<td>user1@test.hu</td>
+			<td>user1</td>
+		</tbody>
+		<tbody>
+			<td>user2@test.hu</td>
+			<td>user2</td>
+		</tbody>
+		<tbody>
+			<td>user3@test.hu</td>
+			<td>user3</td>
+		</tbody>
+	</table>
+</div>

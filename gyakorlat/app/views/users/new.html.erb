@@ -1,0 +1,38 @@
+<h1>Registration</h1>
+<p><%= flash[:user] %></p>
+
+<% if @user.errors.any? %>
+  <div id="error_explanations">
+    <h2><%= pluralize(@user.errors.count, 'error') %> prohibited this user from being saved:</h2>
+    <ul>
+      <% @user.errors.full_messages.each do |m| %>
+        <li><%= m %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<fieldset>
+  <legend>Register</legend>
+  <%= form_for @user, url: '/users/create', method: :post do |form| %>
+    <div>
+      <%= form.label :name %>
+      <%= form.text_field :name, size: 20 %>
+    </div>
+    <div>
+      <%= form.label :email %>
+      <%= form.text_field :email, size: 30 %>
+    </div>
+    <div>
+      <%= form.label :password %>
+      <%= form.password_field :password, size: 20 %>
+    </div>
+    <div>
+      <%= form.label :password_confirmation %>
+      <%= form.password_field :password_confirmation, size: 20 %>
+    </div>
+    <%= form.submit "Register!" %>
+  <% end %>
+</fieldset>
+
+<%= link_to "Back", :back %>

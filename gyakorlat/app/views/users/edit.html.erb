@@ -1,0 +1,30 @@
+<% if logged_in? %>
+	<h2 style="text-align:center; padding-top:20px;">Profile</h2>
+	<div id="regist">
+	  <fieldset>
+	    <legend>Edit user profile</legend>
+	    <%= form_for @user, url: '/users/update', method: :put do |form| %>
+	      <div>
+		<%= form.label :name %>
+		<%= form.text_field :name, size: 20 %>
+	      </div>
+	      <div>
+		<%= form.label :email %>
+		<%= form.text_field :email, size: 30 %>
+	      </div>
+	      <div>
+		<%= form.label :password %>
+		<%= form.password_field :password, size: 20 %>
+	      </div>
+	      <div>
+		<%= form.label :password_confirmation %>
+		<%= form.password_field :password_confirmation, size: 20 %>
+	      </div>
+	      <%= form.submit "Update!" %>
+	    <% end %>
+	  </fieldset>
+	  <%= link_to "Back", :back %>
+	</div>
+<% else %>
+  <%= render 'layouts/guest' %>
+<% end %>

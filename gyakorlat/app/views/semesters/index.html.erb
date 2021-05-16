@@ -1,0 +1,54 @@
+<% if logged_in? %>
+  <p id="notice"><%= notice %></p>
+
+  <h3>Semesters</h3>
+
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Number</th>
+        <th scope="col">Credits</th>
+        <th scope="col">Average</th>
+        <th scope="col">Money</th>
+        <th scope="col">Show</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Destroy</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @semesters.each do |semester| %>
+        <tr>
+          <td><%= semester.id %></td>
+          <td><%= semester.number %></td>
+          <td><%= semester.credits %></td>
+          <td><%= semester.average %></td>
+          <td><%= semester.money %> Ft</td>
+          <td><%= link_to 'Show', semester %></td>
+          <td><%= link_to 'Edit', edit_semester_path(semester) %></td>
+          <td><%= button_to 'Destroy', semester, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+  <div id="newObject">
+    <%= link_to '+', new_semester_path %>
+  </div>
+
+  <br/>
+  <fieldset>
+    <h5>SUM(credits): <%= @sum_credit %></h5>
+    <h5>SUM(money): <%= @sum_money %>Ft</h5>
+    <h5>All Grade Point Average: <%= @average %></h5>
+  </fieldset>
+
+  <div id="paginate_div">
+    <%= will_paginate @subjects, renderer: BootstrapPagination::Rails %>
+  </div>
+
+<% else %>
+  <%= render 'layouts/guest' %>
+<% end %>

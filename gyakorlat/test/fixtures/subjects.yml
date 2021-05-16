@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: "Prog1Test"
+  code: "ABC123"
+  credit: "4"
+  semester: "1"
+  tipus:
+  mandatory: "yes"
+
+two:
+  name: "Prog2Test"
+  code: "ABC567"
+  credit: "6"
+  semester: "2"
+  tipus:
+  mandatory: "yes"

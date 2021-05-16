@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  subject: one
+  homework: "DONE"
+  labor: "10/10"
+  exam: "60%"
+  mark: "3"
+  user: me
+
+two:
+  subject: two
+  homework: "DONE"
+  labor: "8/10"
+  exam: "80%"
+  mark: "5"
+  user: me

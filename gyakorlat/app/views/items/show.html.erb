@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @item.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @item.description %>
+</p>
+
+<ul>
+  <%= for resource in @resources do %>
+    <li><%= link_to "#{resource.name} #{resource.version}", "/resources/"+resource.id.to_s %>
+  <% end %>
+</ul>
+
+<%= link_to 'Edit', edit_item_path(@item) %> |
+<%= link_to 'Back', items_path %>

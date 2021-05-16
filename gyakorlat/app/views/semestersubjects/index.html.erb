@@ -1,0 +1,52 @@
+<% if logged_in? %>
+  <p id="notice"><%= notice %></p>
+
+  <h3>Actual Semester's Subjects</h3>
+
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Subject</th>
+        <th scope="col">Homework</th>
+        <th scope="col">Labor</th>
+        <th scope="col">Exam</th>
+        <th scope="col">Mark</th>
+        <th scope="col">UserID</th>
+        <th scope="col">Show</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Destroy</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @semestersubjects.each do |semestersubject| %>
+        <tr>
+          <td><%= semestersubject.id %></td>
+          <td><%= semestersubject.subject.name %></td>
+          <td><%= semestersubject.homework %></td>
+          <td><%= semestersubject.labor %></td>
+          <td><%= semestersubject.exam %></td>
+          <td><%= semestersubject.mark %></td>
+          <td><%= semestersubject.user_id %></td>
+          <td><%= link_to 'Show', semestersubject %></td>
+          <td><%= link_to 'Edit', edit_semestersubject_path(semestersubject) %></td>
+          <td><%= button_to 'Destroy', semestersubject, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+  <div id="newObject">
+    <%= link_to '+', new_semestersubject_path %>
+  </div>
+  <br/><br/>
+  <fieldset>
+    <h5>All credits: <%= @sum_credit %></h5><br/>
+    <h5>Grade Point Average: <%= @sum_average %></h5>
+  </fieldset>
+
+<% else %>
+  <%= render 'layouts/guest' %>
+<% end %>

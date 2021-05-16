@@ -1,0 +1,47 @@
+<% if logged_in? %>
+  <p id="notice"><%= notice %></p>
+
+  <h3>Subjects</h3>
+
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Code</th>
+        <th scope="col">Credit</th>
+        <th scope="col">Semester</th>
+        <th scope="col">Mandatory</th>
+        <th scope="col">Show</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Destroy</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @subjects.each do |subject| %>
+        <tr>
+          <td><%= subject.id %></td>
+          <td><%= subject.name %></td>
+          <td><%= subject.code %></td>
+          <td><%= subject.credit %></td>
+          <td><%= subject.semester %></td>
+          <td><%= subject.mandatory %></td>
+          <td><%= link_to 'Show', subject %></td>
+          <td><%= link_to 'Edit', edit_subject_path(subject) %></td>
+          <td><%= button_to 'Destroy', subject, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+  <div id="newObject">
+    <%= link_to '+', new_subject_path %>
+  </div>
+  <div id="paginate_div">
+    <%= will_paginate @subjects, renderer: BootstrapPagination::Rails %>
+  </div>
+<% else %>
+  <%= render 'layouts/guest' %>
+<% end %>

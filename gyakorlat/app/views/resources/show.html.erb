@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= link_to @resource.name, @resource %>
+</p>
+
+<p>
+  <strong>Item:</strong>
+  <%= link_to "Project", "/items/#{@resource.item_id}" %>
+</p>
+
+<p>
+  <strong>Version:</strong>
+  <%= @resource.version %>
+</p>
+
+<fieldset>
+  <legend>Upload resource</legend>
+  <%= form_tag '/resource/upload', method: :post do %>
+    <%= label_tag 'File' %>
+    <%= file_field_tag :attachment %>
+    <%= submit_tag 'Upload' %>
+  <% end %>
+  </fieldset
+
+<%= link_to 'Edit', edit_resource_path(@resource) %> |
+<%= link_to 'Back', resources_path %>

@@ -1,0 +1,14 @@
+<div id="info">
+  <h2>Welcome to my page!</h2><br/>
+  <h4>This is an administration page, where you can view and edit all of your subjects, actual subjects and your previous semesters' info.</h4><br/>
+  <% if logged_in? %>
+    <div id="login">
+      <p>You are logged in!</p>
+    </div>
+  <% else %>
+    <p>You have to login in order to view the content!</p><br/>
+    <div id="login">
+      <%= link_to 'Login', '/subjects' %>
+    </div>
+  <% end %>
+</div>

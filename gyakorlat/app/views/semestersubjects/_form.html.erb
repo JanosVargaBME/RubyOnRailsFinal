@@ -1,0 +1,45 @@
+<%= form_with(model: semestersubject) do |form| %>
+  <% if semestersubject.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(semestersubject.errors.count, "error") %> prohibited this semestersubject from being saved:</h2>
+
+      <ul>
+        <% semestersubject.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :subject_id %>
+    <%= form.text_field :subject_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :homework %>
+    <%= form.text_field :homework %>
+  </div>
+
+  <div class="field">
+    <%= form.label :labor %>
+    <%= form.text_field :labor %>
+  </div>
+
+  <div class="field">
+    <%= form.label :exam %>
+    <%= form.text_field :exam %>
+  </div>
+
+  <div class="field">
+    <%= form.label :mark %>
+    <%= form.text_field :mark %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+
+
+
+<% end %>

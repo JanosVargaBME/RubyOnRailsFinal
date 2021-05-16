@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+<div id="show_div">
+<p>
+  <strong>Number:</strong>
+  <%= @semester.number %>
+</p>
+
+<p>
+  <strong>Credits:</strong>
+  <%= @semester.credits %>
+</p>
+
+<p>
+  <strong>Average:</strong>
+  <%= @semester.average %>
+</p>
+
+<p>
+  <strong>Money:</strong>
+  <%= @semester.money %>
+</p>
+
+<%= link_to 'Edit', edit_semester_path(@semester) %> |
+<%= link_to 'Back', semesters_path %>
+</div>

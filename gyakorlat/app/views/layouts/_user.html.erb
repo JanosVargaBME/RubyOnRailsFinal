@@ -1,0 +1,8 @@
+<p><%= flash[:notice] %></p>
+<ul>
+  <li><%= link_to "Profile", edit_profile_path(@user.id) %></li>
+  <li><%= link_to "Subjects", '/subjects' %></li>
+  <li><%= link_to "Actual", '/semestersubjects' %></li>
+  <li><%= link_to "Semester Infos", '/semesters' %></li>
+  <li><%= link_to "Logout", logout_path %></li>
+</ul>
